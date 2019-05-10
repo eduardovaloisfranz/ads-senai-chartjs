@@ -1,6 +1,9 @@
 var contexto = document.getElementById("meuGrafico").getContext('2d')
 
-var tabela = new Chart(contexto, {
+Chart.defaults.global.defaultFontColor = '#443495';
+Chart.defaults.global.defaultFontFamily = "'Helvetica'";
+Chart.defaults.global.lineHeight = 100;
+var tabela = new Chart(contexto, {    
     type: 'bar',
     data: {
         labels: ['Janeiro', 'Fevereiro', 'Marco', 'Abril', 'Maio' ,'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
@@ -48,28 +51,29 @@ var tabela = new Chart(contexto, {
             hoverBorderWidth: 3,
             hoverBorderColor: '#c7c7'
         },{
-            label: 'Grau de satisfação',
+            label: 'Grau de satisfação 2018',
             type: 'line',
             data:[9, 9, 9, 9, 9, 6 , 6, 5 , 9, 4, 8.5 , 9.5],
             backgroundColor: [
-                'rgba(61,240,44, 0.4)',
-                'rgba(114,2,152, 0.4)',   
-                'rgba(75,124,219, 0.4)',
-                'rgba(106, 145, 209, 0.4)',
-                'rgba(61,240,44, 0.4)',
-                'rgba(114,2,152, 0.4)',   
-                'rgba(75,124,219, 0.4)',
-                'rgba(106, 145, 209, 0.4)',
-                'rgba(61,240,44, 0.4)',
-                'rgba(114,2,152, 0.4)',   
-                'rgba(75,124,219, 0.4)',
-                'rgba(106, 145, 209, 0.4)'
+                'rgba(61,240,44, 0.4)'              
             ],
             borderWidth: 1,
             borderColor: '#443495',
             hoverBorderWidth: 3,
-            hoverBorderColor: '#c7c7'
-            
+            hoverBorderColor: '#c7c7',
+            tension: 0            
+        },{
+            label: 'Grau de satisfação 2019',
+            type: 'line',
+            data:[5, 4, 2, 4, 2, 5 , 10, 2 , 4, 5, 9.2 , 5.3],
+            backgroundColor: [                
+                'rgba(114,2,152, 0.4)'                
+            ],
+            borderWidth: 1,
+            borderColor: '#443495',
+            hoverBorderWidth: 3,
+            hoverBorderColor: '#443495',
+            tension: 0
         }]        
     },
     options: {
@@ -80,6 +84,20 @@ var tabela = new Chart(contexto, {
                 top: 5,
                 bottom: 5
             }
+        },
+        title: {
+            display: true,
+            text: 'Notas dos alunos em cada mês e o grau de satisfação'
+        },
+        legend: {
+            position: 'right'
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
     }        
 })
